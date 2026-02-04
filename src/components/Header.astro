@@ -1,0 +1,40 @@
+---
+---
+
+<header class="fixed top-0 left-0 w-full p-6 z-40 flex justify-between items-start pointer-events-none">
+  <div class="pointer-events-auto">
+    <div class="flex flex-col">
+      <span class="text-[10px] opacity-50">UNIT_ID: PAD-SR-ENG-01</span>
+      <span class="font-bold text-xl tracking-tighter">P.A.D.</span>
+    </div>
+  </div>
+  <nav class="pointer-events-auto flex flex-col items-end space-y-4">
+    <div class="flex items-center space-x-6">
+      <button id="theme-toggle" class="hover:text-primary transition-colors flex items-center cursor-pointer">
+        <span class="material-symbols-outlined text-sm">contrast</span>
+      </button>
+      <div class="flex items-center border border-black dark:border-white p-1 px-3 space-x-4 text-xs font-bold">
+        <a class="hover:text-primary transition-colors" href="#">ARCHIVE</a>
+        <span class="opacity-20">|</span>
+        <a class="hover:text-primary transition-colors" href="#">BLUEPRINTS</a>
+        <span class="opacity-20">|</span>
+        <a class="hover:text-primary transition-colors" href="#">COMM</a>
+      </div>
+      <div class="border border-primary bg-primary text-white p-1 px-2 text-[10px] font-bold">
+        LATEST_SPEC_V3
+      </div>
+    </div>
+    <div class="text-[10px] opacity-40 text-right">
+      UPTIME: 133440:12:05<br />
+      COORD: <span class="text-primary font-bold">48.8566N_2.3522E</span>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  toggle?.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    document.documentElement.classList.toggle('light');
+  });
+</script>
