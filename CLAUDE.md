@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A personal portfolio website for Pierre-Alexandre Dupuy (Senior Frontend Engineer / Engineering Manager / AI Engineer). The site features a technical/industrial aesthetic with dark/light mode support.
+A personal portfolio website for Pierre-Alexandre Dupuy (Senior Frontend Engineer / Engineering Manager / Agentic Engineer). The site features a technical/industrial aesthetic with dark/light mode support.
 
 ## Architecture
 

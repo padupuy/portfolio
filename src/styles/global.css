@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap") layer(external);
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
@@ -29,7 +30,7 @@
   background: rgba(255, 77, 0, 0.1);
   position: fixed;
   top: 50%;
-  z-index: 50;
+  z-index: 100;
   pointer-events: none;
 }
 

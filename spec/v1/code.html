@@ -46,7 +46,7 @@
             background: rgba(255, 77, 0, 0.1);
             position: fixed;
             top: 50%;
-            z-index: 50;
+            z-index: 100;
             pointer-events: none;
         }
         .technical-label {
@@ -65,56 +65,58 @@
             line-height: 1.2;
             font-family: 'JetBrains Mono', monospace;
         }
+        .glass-header {
+            @apply backdrop-blur-md bg-background-light/70 dark:bg-background-dark/70 border-b border-black/10 dark:border-white/10;
+        }
+        .main-title-responsive {
+            font-size: clamp(3rem, 12vw, 10rem);
+            line-height: 0.85;
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-black dark:text-white font-mono transition-colors duration-300 min-h-screen grid-bg overflow-x-hidden">
 <div class="scanline"></div>
-<header class="fixed top-0 left-0 w-full p-6 z-40 flex justify-between items-start pointer-events-none">
-<div class="pointer-events-auto">
+<header class="fixed top-0 left-0 w-full z-50 glass-header">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-8">
 <div class="flex flex-col">
-<span class="text-[10px] opacity-50">UNIT_ID: PAD-SR-ENG-01</span>
-<span class="font-bold text-xl tracking-tighter">P.A.D.</span>
+<span class="text-[8px] opacity-50 font-bold leading-none">SYS_ID: PAD-01</span>
+<span class="font-bold text-lg tracking-tighter leading-none">P.A.D.</span>
 </div>
-</div>
-<nav class="pointer-events-auto flex flex-col items-end space-y-4">
-<div class="flex items-center space-x-6">
-<button class="hover:text-primary transition-colors flex items-center" onclick="document.documentElement.classList.toggle('dark')">
-<span class="material-symbols-outlined text-sm">contrast</span>
-</button>
-<div class="flex items-center border border-black dark:border-white p-1 px-3 space-x-4 text-xs font-bold">
-<a class="hover:text-primary transition-colors" href="#">ARCHIVE</a>
-<span class="opacity-20">|</span>
-<a class="hover:text-primary transition-colors" href="#">BLUEPRINTS</a>
-<span class="opacity-20">|</span>
-<a class="hover:text-primary transition-colors" href="#">COMM</a>
-</div>
-<div class="border border-primary bg-primary text-white p-1 px-2 text-[10px] font-bold">
-                LATEST_SPEC_V3
-            </div>
-</div>
-<div class="text-[10px] opacity-40 text-right">
-            UPTIME: 133440:12:05<br/>
-            COORD: <span class="text-primary font-bold">48.8566N_2.3522E</span>
-</div>
+<nav class="hidden lg:flex items-center space-x-1">
+<div class="w-[1px] h-6 bg-black/10 dark:white/10 mx-4"></div>
+<a class="px-3 py-1 text-[10px] font-bold hover:text-primary transition-colors" href="#">SYSTEM_COMMANDS</a>
+<a class="px-3 py-1 text-[10px] font-bold hover:text-primary transition-colors" href="#">LEARNING_LOGS</a>
+<a class="px-3 py-1 text-[10px] font-bold hover:text-primary transition-colors" href="#">ARCHI_BLUEPRINTS</a>
+<a class="px-3 py-1 text-[10px] font-bold hover:text-primary transition-colors" href="#">MISSIONS</a>
+<a class="px-3 py-1 text-[10px] font-bold hover:text-primary transition-colors" href="#">CONFERENCES</a>
 </nav>
+</div>
+<div class="flex items-center space-x-6">
+<button class="w-8 h-8 flex items-center justify-center hover:text-primary border border-black/10 dark:border-white/10 transition-colors" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined text-lg dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined text-lg hidden dark:block">light_mode</span>
+</button>
+</div>
+</div>
 </header>
-<main class="relative pt-40 px-6 pb-20 max-w-7xl mx-auto">
+<main class="relative pt-32 px-6 pb-20 max-w-7xl mx-auto">
 <section class="relative mb-24">
 <div class="flex items-center space-x-4 mb-8">
 <div class="inline-block border-b border-primary/40 pb-1">
 <span class="technical-label opacity-60">SR. FRONTEND ENGINEER // ENGINEERING MANAGER // AI ARCHITECT</span>
 </div>
 </div>
-<h1 class="text-7xl md:text-9xl font-display font-black leading-[0.85] tracking-tighter uppercase mb-20">
-            Pierre<br/>
-            Alexandre<br/>
+<h1 class="main-title-responsive font-display font-black tracking-tighter uppercase mb-20">
+                Pierre<br/>
+                Alexandre<br/>
 <span class="text-primary">Dupuy<span class="blink">_</span></span>
 </h1>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16 border-t border-black/10 dark:border-white/10 pt-10">
-<div class="relative flex flex-col">
-<div class="flex items-baseline justify-between mb-4">
-<h2 class="text-xl font-bold uppercase tracking-tight">Frontend Software Engineer</h2>
-<span class="text-primary font-bold text-sm">15YR</span>
+<div class="relative flex flex-col group">
+<div class="mb-4">
+<span class="text-primary font-bold text-[10px] mb-1 block">F-01 // 15YR_EXP</span>
+<h2 class="text-xl font-bold uppercase tracking-tight leading-tight">Frontend Software Engineer</h2>
 </div>
 <div class="space-y-4">
 <div>
@@ -126,18 +128,18 @@
 <p class="text-[11px] leading-relaxed uppercase opacity-80">Robustness, Scalability, Performance, Maintenance, Testing Trophy</p>
 </div>
 <div>
-<span class="technical-label text-primary font-bold block mb-1">Standards</span>
+<span class="technical-label text-primary font-bold block mb-1">Impact</span>
 <p class="text-[11px] leading-relaxed uppercase opacity-80">UX, Accessibility, Eco-design</p>
 </div>
 </div>
 <div class="mt-6 border-t border-black/5 dark:border-white/5 pt-2">
-<span class="text-[8px] opacity-40 uppercase tracking-widest">Core Technical Domain // Ref: F-01</span>
+<span class="text-[8px] opacity-40 uppercase tracking-widest">Core Technical Domain</span>
 </div>
 </div>
-<div class="relative flex flex-col">
-<div class="flex items-baseline justify-between mb-4">
-<h2 class="text-xl font-bold uppercase tracking-tight">Leadership &amp; Management</h2>
-<span class="text-primary font-bold text-sm">05YR</span>
+<div class="relative flex flex-col group">
+<div class="mb-4">
+<span class="text-primary font-bold text-[10px] mb-1 block">L-02 // 05YR_EXP</span>
+<h2 class="text-xl font-bold uppercase tracking-tight leading-tight">Leadership &amp; Management</h2>
 </div>
 <div class="space-y-4">
 <div>
@@ -146,21 +148,17 @@
 </div>
 <div>
 <span class="technical-label text-primary font-bold block mb-1">Culture</span>
-<p class="text-[11px] leading-relaxed uppercase opacity-80">Strong Technical Watch Culture, Product Culture, Continuous Training</p>
-</div>
-<div>
-<span class="technical-label text-primary font-bold block mb-1">Expertise</span>
-<p class="text-[11px] leading-relaxed uppercase opacity-80">Frontend Expertise Integration</p>
+<p class="text-[11px] leading-relaxed uppercase opacity-80">Strong Technical Watch Culture, Frontend Expertise, Product Culture, Continuous Training</p>
 </div>
 </div>
 <div class="mt-6 border-t border-black/5 dark:border-white/5 pt-2">
-<span class="text-[8px] opacity-40 uppercase tracking-widest">Leadership &amp; Operations // Ref: L-02</span>
+<span class="text-[8px] opacity-40 uppercase tracking-widest">Leadership &amp; Operations</span>
 </div>
 </div>
-<div class="relative flex flex-col">
-<div class="flex items-baseline justify-between mb-4">
-<h2 class="text-xl font-bold uppercase tracking-tight">AI Engineer</h2>
-<span class="text-primary font-bold text-sm">02YR</span>
+<div class="relative flex flex-col group">
+<div class="mb-4">
+<span class="text-primary font-bold text-[10px] mb-1 block">A-03 // 02YR_EXP</span>
+<h2 class="text-xl font-bold uppercase tracking-tight leading-tight">Agentic Engineer</h2>
 </div>
 <div class="space-y-4">
 <div>
@@ -168,12 +166,12 @@
 <p class="text-[11px] leading-relaxed uppercase opacity-80">Emerging Tech, Large Language Models (LLMs), Prompt Engineering</p>
 </div>
 <div>
-<span class="technical-label text-primary font-bold block mb-1">Integration</span>
+<span class="technical-label text-primary font-bold block mb-1">Systems</span>
 <p class="text-[11px] leading-relaxed uppercase opacity-80">AI-Augmented Workflows, Agentic Systems, Technical Strategy</p>
 </div>
 </div>
 <div class="mt-6 border-t border-black/5 dark:border-white/5 pt-2">
-<span class="text-[8px] opacity-40 uppercase tracking-widest">Emerging Tech &amp; LLMs // Ref: A-03</span>
+<span class="text-[8px] opacity-40 uppercase tracking-widest">Emerging Tech &amp; LLMs</span>
 </div>
 </div>
 </div>
@@ -262,8 +260,8 @@
 <div class="absolute -top-3 left-4 bg-background-light dark:bg-background-dark px-2">
 <span class="technical-label font-bold text-primary flex items-center gap-2">
 <span class="w-2 h-2 bg-primary animate-pulse"></span>
-                    CLAUDE_INTEL_BRIDGE
-                </span>
+                        CLAUDE_INTEL_BRIDGE
+                    </span>
 </div>
 <div class="h-48 overflow-y-auto mb-4 space-y-4 p-2">
 <div class="flex gap-4">
@@ -276,7 +274,7 @@
 </div>
 <div class="flex gap-4">
 <span class="text-primary font-bold text-[10px] shrink-0">CLAUDE:</span>
-<p class="text-[11px] leading-relaxed italic opacity-80">Searching availability logs... Pierre is currently prioritizing high-impact EM and AI engineering roles but maintains limited capacity for technical audit mandates.</p>
+<p class="text-[11px] leading-relaxed italic opacity-80">Searching availability logs... Pierre is currently prioritizing high-impact EM and Agentic Engineering roles but maintains limited capacity for technical audit mandates.</p>
 </div>
 </div>
 <div class="border-t border-black/10 dark:border-white/10 pt-4 flex items-center gap-3">
@@ -288,35 +286,40 @@
 <footer class="mt-20 border-t-2 border-black dark:border-white pt-10">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 <div class="col-span-1 md:col-span-2">
-<div class="flex items-center space-x-2 mb-4">
+<div class="flex flex-col space-y-4 mb-4">
+<div class="flex items-center space-x-2">
 <span class="w-3 h-3 bg-primary"></span>
 <span class="technical-label font-bold">STATUS: MISSION_READY</span>
 </div>
+<div class="text-[9px] opacity-60 font-mono tracking-wider">
+                            COORD: <span class="text-primary font-bold">44.8378° N, 0.5792° W</span>
+</div>
+</div>
 <p class="text-[11px] opacity-60 leading-relaxed max-w-sm uppercase">
-                    Redesigning industrial-grade digital interfaces since 2009. Focusing on the intersection of scalable codebases, AI integration, and user-centric architecture.
-                </p>
-<div class="mt-4 console-text opacity-30 uppercase">
-                    Hash: d41d8cd98f00b204e9800998ecf8427e<br/>
-                    Salt: PAD_BLUEPRINT_2024
-                </div>
+                        Redesigning industrial-grade digital interfaces since 2009. Focusing on the intersection of scalable codebases, AI integration, and user-centric architecture.
+                    </p>
+<div class="mt-6 flex flex-col gap-1">
+<span class="technical-label text-primary font-bold text-[9px]">UPTIME_COUNTER:</span>
+<div class="font-mono text-[10px] font-bold tracking-[0.2em]" id="uptime-display">00:00:00:00:00:00</div>
+</div>
 </div>
 <div>
 <span class="technical-label opacity-40 block mb-4">Connectivity</span>
 <ul class="text-[10px] font-bold space-y-2">
 <li class="hover:text-primary cursor-pointer flex items-center gap-2">
 <span class="material-symbols-outlined text-[10px]">terminal</span> GITHUB // SRC_CODE
-                    </li>
+                        </li>
 <li class="hover:text-primary cursor-pointer flex items-center gap-2">
 <span class="material-symbols-outlined text-[10px]">hub</span> LINKEDIN // PROF_LINK
-                    </li>
+                        </li>
 <li class="hover:text-primary cursor-pointer flex items-center gap-2">
 <span class="material-symbols-outlined text-[10px]">mail</span> EMAIL // SEND_RECV
-                    </li>
+                        </li>
 </ul>
 </div>
 <div class="flex flex-col items-end justify-end">
 <div class="text-right">
-<span class="text-[10px] opacity-40">© 2024 PIERRE ALEXANDRE DUPUY_</span><br/>
+<span class="text-[10px] opacity-40 uppercase">© 2024 PIERRE ALEXANDRE DUPUY_</span><br/>
 <span class="text-[8px] opacity-30 font-bold uppercase">SEC_CLEARED // LEVEL_05</span>
 </div>
 </div>
@@ -336,10 +339,32 @@
 </div>
 </div>
 <div class="fixed left-4 top-1/2 -rotate-90 origin-left text-[8px] opacity-20 tracking-widest hidden lg:block uppercase">
-    Technical Specification // Authored by P.A. Dupuy
-</div>
+        Technical Specification // Authored by P.A. Dupuy
+    </div>
 <div class="fixed right-4 top-1/2 rotate-90 origin-right text-[8px] opacity-20 tracking-widest hidden lg:block uppercase">
-    Engineering Portfolio // System_ID: PAD-001
-</div>
+        Engineering Portfolio // System_ID: PAD-001
+    </div>
+<script>
+        const birthDate = new Date('1990-11-22T00:00:00');
+        function updateUptime() {
+            const now = new Date();
+            let diff = Math.floor((now - birthDate) / 1000);
+            const years = Math.floor(diff / (365.25 * 24 * 60 * 60));
+            diff -= years * (365.25 * 24 * 60 * 60);
+            const months = Math.floor(diff / (30.44 * 24 * 60 * 60));
+            diff -= months * (30.44 * 24 * 60 * 60);
+            const days = Math.floor(diff / (24 * 60 * 60));
+            diff -= days * (24 * 60 * 60);
+            const hours = Math.floor(diff / (60 * 60));
+            diff -= hours * (60 * 60);
+            const minutes = Math.floor(diff / 60);
+            const seconds = Math.floor(diff % 60);
+            const format = (num) => String(Math.floor(num)).padStart(2, '0');
+            document.getElementById('uptime-display').innerText = 
+                `${format(years)}:${format(months)}:${format(days)}:${format(hours)}:${format(minutes)}:${format(seconds)}`;
+        }
+        setInterval(updateUptime, 1000);
+        updateUptime();
+    </script>
 
 </body></html>

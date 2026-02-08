@@ -4,16 +4,21 @@
 <footer class="mt-20 border-t-2 border-black dark:border-white pt-10">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
     <div class="col-span-1 md:col-span-2">
-      <div class="flex items-center space-x-2 mb-4">
-        <span class="w-3 h-3 bg-primary"></span>
-        <span class="technical-label font-bold">STATUS: MISSION_READY</span>
+      <div class="flex flex-col space-y-4 mb-4">
+        <div class="flex items-center space-x-2">
+          <span class="w-3 h-3 bg-primary"></span>
+          <span class="technical-label font-bold">STATUS: MISSION_READY</span>
+        </div>
+        <div class="text-[9px] opacity-60 font-mono tracking-wider">
+          COORD: <span class="text-primary font-bold">44.8378° N, 0.5792° W</span>
+        </div>
       </div>
       <p class="text-[11px] opacity-60 leading-relaxed max-w-sm uppercase">
         Redesigning industrial-grade digital interfaces since 2009. Focusing on the intersection of scalable codebases, AI integration, and user-centric architecture.
       </p>
-      <div class="mt-4 console-text opacity-30 uppercase">
-        Hash: d41d8cd98f00b204e9800998ecf8427e<br />
-        Salt: PAD_BLUEPRINT_2024
+      <div class="mt-6 flex flex-col gap-1">
+        <span class="technical-label text-primary font-bold text-[9px]">UPTIME_COUNTER:</span>
+        <div class="font-mono text-[10px] font-bold tracking-[0.2em]" id="uptime-display">00:00:00:00:00:00</div>
       </div>
     </div>
     <div>
@@ -32,9 +37,32 @@
     </div>
     <div class="flex flex-col items-end justify-end">
       <div class="text-right">
-        <span class="text-[10px] opacity-40">© 2024 PIERRE ALEXANDRE DUPUY_</span><br />
+        <span class="text-[10px] opacity-40 uppercase">© 2024 PIERRE ALEXANDRE DUPUY_</span><br />
         <span class="text-[8px] opacity-30 font-bold uppercase">SEC_CLEARED // LEVEL_05</span>
       </div>
     </div>
   </div>
 </footer>
+
+<script>
+  const birthDate = new Date('1990-11-22T00:00:00');
+  function updateUptime() {
+    const now = new Date();
+    let diff = Math.floor((now - birthDate) / 1000);
+    const years = Math.floor(diff / (365.25 * 24 * 60 * 60));
+    diff -= years * (365.25 * 24 * 60 * 60);
+    const months = Math.floor(diff / (30.44 * 24 * 60 * 60));
+    diff -= months * (30.44 * 24 * 60 * 60);
+    const days = Math.floor(diff / (24 * 60 * 60));
+    diff -= days * (24 * 60 * 60);
+    const hours = Math.floor(diff / (60 * 60));
+    diff -= hours * (60 * 60);
+    const minutes = Math.floor(diff / 60);
+    const seconds = Math.floor(diff % 60);
+    const format = (num) => String(Math.floor(num)).padStart(2, '0');
+    document.getElementById('uptime-display').innerText =
+      `${format(years)}:${format(months)}:${format(days)}:${format(hours)}:${format(minutes)}:${format(seconds)}`;
+  }
+  setInterval(updateUptime, 1000);
+  updateUptime();
+</script>
